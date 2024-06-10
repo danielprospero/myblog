@@ -69,18 +69,31 @@
 						</div>
 						<div class="col-md-10 text-right menu-1">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="{{ route('home') }}">Home</a></li>
 								<li class="has-dropdown">
-									<a href="courses.html">Categories</a>
+									<a href="courses.html">Categorias</a>
 									<ul class="dropdown">
 										<li><a href="#">Programming</a></li>
 										<li><a href="#">Games</a></li>
 										<li><a href="#">Soft Skills</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li class="btn-cta"><a href="#"><span>Sign in</span></a></li>
+								<li><a href="{{ route('about') }}">Sobre</a></li>
+								<li><a href="{{ route('contact') }}">Contato</a></li>
+								@guest
+								<li class="btn-cta"><a href="{{ route('login') }}"><span>Login</span></a></li>
+								@endguest
+								@auth
+								<li class="has-dropdown">
+									<a href="#">{{ auth()->user()->name }} <span class="caret"></span></a>
+									<ul class="dropdown">
+										<li><a 	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout') }}">Logout</a></li>
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											@csrf
+										</form>
+									</ul>
+								</li>
+								@endauth
 							</ul>
 						</div>
 					</div>
