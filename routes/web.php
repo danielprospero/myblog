@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\User;
+
+Route::get('/createuser', function () {
+   
+    $user = User::find(1);
+
+     return $user->image;
+
+});
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
