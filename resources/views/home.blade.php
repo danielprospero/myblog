@@ -6,13 +6,15 @@
             <div class="row">
                 <div class="col-md-8 posts-col">
 
+            
+
                 @foreach ($posts as $post)
                     
                 <div class="block-21 d-flex animate-box post">
-                    <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-1.jpg);"></a>
+                    <a href="#" class="blog-img" style="background-image: url({{ asset('storage/'.$post->image->path) }});"></a>
                     <div class="text">
                         <h3 class="heading"><a href="#">{{ $post->title }}</a></h3>
-                        <p class='excerpt'>{{ $post->excerpt }}</p>
+                        <p class="excerpt">{{ $post->excerpt }}</p>
                         <div class="meta">
                             <div><a class='date' href="#"><span class="icon-calendar"></span> {{ $post->created_at->format('d M Y') }} </a></div>
                             <div><a href="#"><span class="icon-user2"></span> {{ $post->author->name }}</a></div>
@@ -45,33 +47,20 @@
                         </div>
                         <div class="side">
                             <h3 class="sidebar-heading">Recent Blog</h3>
+                            @foreach ($recent_posts as $recent_post)
+                                
                             <div class="f-blog">
-                                <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-1.jpg);">
+                                <a href="blog.html" class="blog-img" style="background-image: url({{ asset('storage/'.$recent_post->image->path) }});">
                                 </a>
                                 <div class="desc">
-                                    <p class="admin"><span>18 April 2018</span></p>
-                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-                                    <p>Far far away, behind the word mountains</p>
+                                    <p class="admin"><span>{{ $recent_post->created_at->format('d M Y') }}</span></p>
+                                    <h2><a title="{{ $recent_post->title }}" href="blog.html">{{ \Str::limit($recent_post->title, 20) }}</a></h2>
+                                    <p title="{{ $recent_post->excerpt }}">{{ \Str::limit($recent_post->excerpt, 25) }}</p>
                                 </div>
                             </div>
-                            <div class="f-blog">
-                                <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-2.jpg);">
-                                </a>
-                                <div class="desc">
-                                    <p class="admin"><span>18 April 2018</span></p>
-                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-                                    <p>Far far away, behind the word mountains</p>
-                                </div>
-                            </div>
-                            <div class="f-blog">
-                                <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-3.jpg);">
-                                </a>
-                                <div class="desc">
-                                    <p class="admin"><span>18 April 2018</span></p>
-                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-                                    <p>Far far away, behind the word mountains</p>
-                                </div>
-                            </div>
+
+                            @endforeach
+
                         </div>
                         <div class="side">
                             <h3 class="sidbar-heading">Tags</h3>
