@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/post', function () {
-    return view('post');
-})->name('post');
+Route::get('/post/{post:slug}', [ PostsController::class, 'show' ])->name('posts.show');
+Route::post('/post/{post:slug}', [ PostsController::class, 'addComment' ])->name('posts.add_comment');
+
+
 
 Route::get('/about', function () {
     return view('about');
