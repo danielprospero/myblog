@@ -79,7 +79,7 @@
 									</ul>
 								</li>
 								<li><a href="{{ route('about') }}">Sobre</a></li>
-								<li><a href="{{ route('contact') }}">Contato</a></li>
+								<li><a href="{{ route('contact.create') }}">Contato</a></li>
 								@guest
 								<li class="btn-cta"><a href="{{ route('login') }}"><span>Login</span></a></li>
 								@endguest
