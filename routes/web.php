@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,7 @@ Route::post('/post/{post:slug}', [ PostsController::class, 'addComment' ])->name
 
 
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about', AboutController::class)->name('about');
 
 Route::get('/contact', function () {
     return view('contact');
