@@ -1,0 +1,45 @@
+
+
+.global-message {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 500px;
+    border-radius: 50px;
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para visibilidade */
+}
+
+
+.global-message.info
+{
+    background: #4586ff;
+}
+
+.global-message.error
+{
+    background: #d81d1d;
+}
+
+.subscribe-error
+{
+    background: #931d1d;
+    border-color: #931d1d;
+}
+
+.subscribe-success
+{
+    background: #15c8ce;
+    border-color: #15c8ce;
+}
+
+/* Categories Page Style */
+
+
+.categories-col .block-21 .text
+{
+    width: 100%;
+}
