@@ -1,5 +1,5 @@
 @extends('main_layouts.master')
-@section('title', 'MyBlog | Home')
+@section('title', $tag->name . ' Tag | MyBlog')
 @section('content')
     <div class="colorlib-blog">
         <div class="container">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 @empty
-                    <p class='lead'>Nenhum post encontrado</p>
+                    <p class='lead'>Nenhum post encontrado reacionado a tag <strong>{{ $tag->name }}</strong></p>
 
                 @endforelse
 

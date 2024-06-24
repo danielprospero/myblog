@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,9 @@ Route::get('/about', AboutController::class)->name('about');
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/categoreis/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categoreis', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
 
 require __DIR__.'/auth.php';
