@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             $user->image()->save(\App\Models\Image::factory()->make());
         }
         // \App\Models\Role::factory(1)->create();
+        // \App\Models\Role::create(['name' => 'admin']);
         // \App\Models\Category::factory(5)->create();
         $posts = \App\Models\Post::factory(100)->create();
         // \App\Models\Comment::factory(100)->create();
