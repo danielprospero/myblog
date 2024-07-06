@@ -20,6 +20,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{ asset('admin_dashboard_assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('admin_dashboard_assets/css/icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin_dashboard_assets/css/my-style.css') }}" rel="stylesheet">
 
     <!-- Theme Style CSS -->
     <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/dark-theme.css') }}" />
@@ -29,6 +30,15 @@
 </head>
 
 <body>
+
+    @if(Session::has('success'))
+        <div class='general-message alert alert-info'>{{ Session::get('success') }}</div>
+    @endif
+
+    @if(Session::has('error'))
+        <div class='general-message alert alert-danger'>{{ Session::get('error') }}</div>
+    @endif
+
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--start header -->
