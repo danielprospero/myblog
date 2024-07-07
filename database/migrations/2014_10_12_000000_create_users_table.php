@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsersTable extends Migration
 {
@@ -22,6 +23,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('123456'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 
     /**
@@ -31,6 +40,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        DB::table('users')->where('email', 'admin@admin.com')->delete();
+        
         Schema::dropIfExists('users');
     }
 }

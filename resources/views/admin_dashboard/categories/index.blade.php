@@ -6,13 +6,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Posts</div>
+					<div class="breadcrumb-title pe-3">Categorias</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Posts</li>
+								<li class="breadcrumb-item active" aria-current="page">Categorias</li>
 							</ol>
 						</nav>
 					</div>
@@ -37,24 +37,23 @@
 							<div class="position-relative">
 								<input type="text" class="form-control ps-5 radius-30" placeholder="Pesquisa Post"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
 							</div>
-						  <div class="ms-auto"><a href="{{ route('admin.posts.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Adicionar novo post</a></div>
+						  <div class="ms-auto"><a href="{{ route('admin.categories.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Adicionar nova catergoria</a></div>
 						</div>
 						<div class="table-responsive">
 							<table class="table mb-0">
 								<thead class="table-light">
 									<tr>
-										<th>Post#</th>
-										<th>Titulo</th>
-										<th>Descrição</th>
-										<th>Categoria</th>
+										<th>Categoria#</th>
+										<th>Nome</th>
+                                        <th>Slug</th>
+                                        <th>posts relacionadas</th>
+										<th>Criador</th>
 										<th>Criado em</th>
-										<th>Status</th>
-										<th>Views</th>
 										<th>Açoes</th>
 									</tr>
 								</thead>
 								<tbody>
-                                    @foreach ($posts as $post)
+                                    @foreach ($categories as $category)
 									<tr>
 										<td>
 											<div class="d-flex align-items-center">
@@ -62,24 +61,23 @@
 													<input class="form-check-input me-3" type="checkbox" value="" aria-label="...">
 												</div>
 												<div class="ms-2">
-													<h6 class="mb-0 font-14">#P-{{ $post->id }}</h6>
+													<h6 class="mb-0 font-14">#P-{{ $category->id }}</h6>
 												</div>
 											</div>
 									
 										</td>
-										<td>{{ $post->title }}</td>
-										<td>{{ $post->excerpt }}</td>
-										<td>{{ $post->category->name }}</td>
-                                        <td>{{ $post->created_at->format('d/m/Y') }}</td>
-										<td>
-											<div class="badge rounded-pill  @if($post->status == 'published') text-success bg-light-success p-2 text-uppercase px-3 @elseif ($post->status == 'draft') text-warning bg-light-warning p-2 text-uppercase px-3 @else text-danger bg-light-danger p-2 text-uppercase px-3 @endif"><i class='bx bxs-circle align-middle me-1'></i>{{ $post->status }}</div>
-										</td>
-                                        <td>{{ $post->views }}</td>
-										<td>
+										<td>{{ $category->name }}</td>
+                                        <td>{{ $category->slug }}</td>
+                                        <td>
+                                            <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.show', $category) }}">{{ $category->posts->count() }} - Ver posts</a>
+                                        </td>
+										<td>{{ $category->user->name }}</td>
+                                        <td>{{ $category->created_at->format('d/m/Y') }}</td>
+                                        <td>
 											<div class="d-flex order-actions">
-												<a href="{{route('admin.posts.edit', $post)}}" class="text-info  bg-light-info"><i class='bx bxs-edit'></i></a>
-												<a href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{$post->id}}').submit();" class="text-danger  bg-light-danger ms-2"><i class='bx bxs-trash'></i></a>
-												<form id="delete_form_{{$post->id}}" action="{{route('admin.posts.destroy', $post)}}" method="POST" style="display: none;">
+												<a href="{{route('admin.categories.edit', $category)}}" class="text-info  bg-light-info"><i class='bx bxs-edit'></i></a>
+												<a href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{$category->id}}').submit();" class="text-danger  bg-light-danger ms-2"><i class='bx bxs-trash'></i></a>
+												<form id="delete_form_{{$category->id}}" action="{{route('admin.categories.destroy', $category)}}" method="POST" style="display: none;">
 													@csrf
 													@method('DELETE')
 												</form>
@@ -93,7 +91,7 @@
 					</div>
 				</div>
 
-                {{$posts->links()}}
+                {{$categories->links()}}
 
 
 			</div>

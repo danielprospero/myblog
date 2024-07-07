@@ -6,13 +6,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Posts</div>
+					<div class="breadcrumb-title pe-3">{{ $category->name }} Posts</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Posts</li>
+								<li class="breadcrumb-item active" aria-current="page">Categoria Posts</li>
 							</ol>
 						</nav>
 					</div>
@@ -54,7 +54,8 @@
 									</tr>
 								</thead>
 								<tbody>
-                                    @foreach ($posts as $post)
+                                    @if($category->posts->count())
+                                    @foreach ($category->posts as $post)
 									<tr>
 										<td>
 											<div class="d-flex align-items-center">
@@ -92,8 +93,12 @@
 						</div>
 					</div>
 				</div>
+                @else
 
-                {{$posts->links()}}
+                <div class="alert alert-warning" role="alert">
+                    Nenhum post encontrado
+                </div>
+                @endif
 
 
 			</div>

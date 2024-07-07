@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCategoriesTable extends Migration
@@ -19,6 +20,15 @@ class CreateCategoriesTable extends Migration
             $table->string('slug')->unique();
             $table->timestamps();
         });
+
+        DB::table('categories')->insert([
+            'name' => 'Sem categoria',
+            'slug' => 'sem-categoria',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+
     }
 
     /**
@@ -28,6 +38,10 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
+        
+        DB::table('categories')->where('slug', 'sem-categoria')->delete();
+
         Schema::dropIfExists('categories');
+
     }
 }
