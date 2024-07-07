@@ -4,6 +4,7 @@
 	@section("style")
 	<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
 	<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2-bootstrap4.css') }}" rel="stylesheet" />
+	<link href="{{ asset('admin_dashboard_assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 
 	<script src="https://cdn.tiny.cloud/1/wul4w7yae69ggfibeead32lbky9ybwlavgcdcnmpppce6w0z/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -83,6 +84,13 @@
                                             </div>
                                         </div>
 										<div class="mb-3">
+                                            <label class="form-label">Tags</label>
+                                            <input type="text" class="form-control" name='tags' data-role="tagsinput" value="{{ old('tags') }}">
+                                        </div>
+										@error('tags')
+											<span class="text-danger">{{ $message }}</span>
+										@enderror
+										<div class="mb-3">
 											<div class='card'>
 												<div class="card-body">
 											
@@ -124,6 +132,7 @@
 	
 	@section("script")
 	<script src="{{ asset('admin_dashboard_assets/plugins/select2/js/select2.min.js') }}"></script>
+	<script src="{{ asset('admin_dashboard_assets/plugins/input-tags/js/tagsinput.js') }}"></script>
 	<script>
 		$(document).ready(function () {
 

@@ -1,8 +1,8 @@
 @extends('main_layouts.master')
-@section('title', 'MyBlog | Post')
+@section('title', $post->title . ' | MyBlog')
 @section('content')
 
-@section('custom_css')
+@section('costum_css')
 
 	<style>
 		.class-single .desc img {

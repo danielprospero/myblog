@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\AdminControllers\AdminPostsController;
 use App\Http\Controllers\AdminControllers\TinyMCEController;
 use App\Http\Controllers\AdminControllers\AdminCategoriesController;
+use App\Http\Controllers\AdminControllers\AdminTagsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'isadmin')->group(fun
 
     Route::resource('posts', AdminPostsController::class);
     Route::resource('categories', AdminCategoriesController::class);
+
+    Route::resource('tags', AdminTagsController::class)->only(['index', 'show', 'destroy', 'edit']);
+
 });

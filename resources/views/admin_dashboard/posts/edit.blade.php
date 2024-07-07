@@ -5,6 +5,7 @@
 	
 	<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
 	<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2-bootstrap4.css') }}" rel="stylesheet" />
+	<link href="{{ asset('admin_dashboard_assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 
 	<script src="https://cdn.tiny.cloud/1/wul4w7yae69ggfibeead32lbky9ybwlavgcdcnmpppce6w0z/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -84,6 +85,13 @@
                                             </div>
                                         </div>
 										<div class="mb-3">
+                                            <label class="form-label">Tags</label>
+                                            <input type="text" class="form-control" name='tags' data-role="tagsinput" value="{{ old('tags', $post->tags->pluck('name')->implode(',')) }}">
+                                        </div>
+										@error('tags')
+											<span class="text-danger">{{ $message }}</span>
+										@enderror
+										<div class="mb-3">
 											<div class='row'>
 												<div class='col-md-8'>
 													<div class="card">
@@ -111,7 +119,7 @@
 										</div>
 										<div class="mb-3">
 											<label for="inputProductDescription" class="form-label">Conteúdo do Post</label>
-                                            <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="3">{{ old("body", str_replace('../../../', '/', $post->body)) }}</textarea>
+                                            <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="3">{{ old("body", str_replace('../../', '../../../', $post->body)) }}</textarea>
 											@error('body')
 												<span class="text-danger">{{ $message }}</span>
 											@enderror
@@ -119,15 +127,16 @@
 
 										<button class='btn btn-primary' type='submit'>Atualizar</button>
 
-										<form action="{{ route('admin.posts.destroy', $post) }}" method='post'>
-											@csrf
-											@method('DELETE')
-											<button class='btn btn-danger' type='submit'>Deletar</button>
-										</form>
+										<a class='btn btn-danger' href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{$post->id}}').submit();">Deletar</a>
 
 									</div>
 								</div>
 
+							</form>
+
+							<form action="{{ route('admin.posts.destroy', $post) }}" method='post'>
+								@csrf
+								@method('DELETE')
 							</form>
 
 						  </div>
@@ -144,6 +153,7 @@
 	
 	@section("script")
 	<script src="{{ asset('admin_dashboard_assets/plugins/select2/js/select2.min.js') }}"></script>
+	<script src="{{ asset('admin_dashboard_assets/plugins/input-tags/js/tagsinput.js') }}"></script>
 	<script>
 		$(document).ready(function () {
 
