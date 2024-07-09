@@ -134,7 +134,7 @@
 
 							</form>
 
-							<form action="{{ route('admin.posts.destroy', $post) }}" method='post'>
+							<form action="{{ route('admin.posts.destroy', $post) }}" method='post' id='delete_form_{{$post->id}}'>
 								@csrf
 								@method('DELETE')
 							</form>

@@ -72,6 +72,24 @@
                     </ul>
                 </li>
 
+                <li class="menu-label">Comentrários</li>
+
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-comment'></i>
+                        </div>
+                        <div class="menu-title">Comentrários</div>
+                    </a>
+
+                    <ul>
+                        <li> <a href="{{ route('admin.comments.index') }}"><i class="bx bx-right-arrow-alt"></i>Comentrários</a>
+                        </li>
+                        <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt"></i>Nova</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+
 
 
             </ul>
