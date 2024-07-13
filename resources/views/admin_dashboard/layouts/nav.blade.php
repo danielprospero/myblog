@@ -13,13 +13,11 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="{{ url('index') }}" target="_blank">
+                    <a href="{{ route('admin.index') }}">
                     <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
                         <div class="menu-title">Dashboard</div>
                     </a>
                 </li>
-
-                <li class="menu-label">Posts</li>
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
@@ -37,8 +35,6 @@
                     </ul>
                 </li>
 
-                <li class="menu-label">Categorias</li>
-
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-category'></i>
@@ -55,9 +51,6 @@
                     </ul>
                 </li>
 
-
-                <li class="menu-label">Tags</li>
-
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-tag'></i>
@@ -71,8 +64,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="menu-label">Comentrários</li>
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
@@ -89,6 +80,26 @@
                         
                     </ul>
                 </li>
+
+                <hr>
+
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-key'></i>
+                        </div>
+                        <div class="menu-title">Roles</div>
+                    </a>
+
+                    <ul>
+                        <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>Roles</a>
+                        </li>
+                        <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Nova</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+
+
 
 
 
