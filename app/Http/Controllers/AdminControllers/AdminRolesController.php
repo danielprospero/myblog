@@ -46,7 +46,6 @@ class AdminRolesController extends Controller
      */
     public function store(Request $request, Role $role)
     {
-        $this->rules['name'] = ['required', Rule::unique('roles')->ignore($role)];
         $validated = $request->validate($this->rules);
         $permissions = $request->input('permissions');
 
@@ -91,6 +90,7 @@ class AdminRolesController extends Controller
      */
     public function update(Request $request, Role $role)
     {
+        $this->rules['name'] = ['required', Rule::unique('roles')->ignore($role)];
         $validated = $request->validate($this->rules);
         $permissions = $request->input('permissions');
 
