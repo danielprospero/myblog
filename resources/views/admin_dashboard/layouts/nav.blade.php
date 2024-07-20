@@ -116,9 +116,12 @@
                     </ul>
                 </li>
 
-
-
-
+                <li>
+                    <a href="{{ route('admin.contacts') }}">
+                    <div class="parent-icon"><i class='bx bx-mail-send'></i></div>
+                        <div class="menu-title">Contatos</div>
+                    </a>
+                </li>
 
             </ul>
             <!--end navigation-->
