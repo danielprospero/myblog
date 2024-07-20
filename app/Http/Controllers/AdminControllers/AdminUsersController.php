@@ -150,7 +150,11 @@ class AdminUsersController extends Controller
         {
             return redirect()->route('admin.users.index')->with('error', 'Você não pode deletar a si mesmo!');
         }
-        dd($user);
+        
+        User::whereHas('role', function($query){
+            $query->where('name', 'admin');
+        })->first()->posts()->saveMany($user->posts);
+        
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'Usuário deletado com sucesso!');
     }
