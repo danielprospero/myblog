@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Setting;
 
 class AboutController extends Controller
 {
@@ -14,6 +15,8 @@ class AboutController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('about');
+        return view('about', [
+            'setting' => Setting::find(1)
+        ]);
     }
 }
