@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\NewsletterController;
+
 
 use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\AdminControllers\AdminPostsController;
@@ -47,6 +49,9 @@ Route::get('/categoreis/{category:slug}', [CategoryController::class, 'show'])->
 Route::get('/categoreis', [CategoryController::class, 'index'])->name('categories.index');
 
 Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
+
+Route::post('newsletter', [NewsletterController::class, 'store'])->name('newsletter_store');
+
 
 require __DIR__.'/auth.php';
 

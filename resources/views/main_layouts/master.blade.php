@@ -8,6 +8,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
+	<meta name="_token" content="{{ csrf_token() }}" />
 
   <!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -130,12 +131,12 @@
 							<form class="form-inline qbstp-header-subscribe">
 								<div class="col-three-forth">
 									<div class="form-group">
-										<input type="text" class="form-control" id="email" placeholder="Digite seu e-mail">
+										<input name="subscribe-email" type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
 									</div>
 								</div>
 								<div class="col-one-third">
 									<div class="form-group">
-										<button type="submit" class="btn btn-primary">Inscreva-se</button>
+										<button id="subscribe-btn" type="submit" class="btn btn-primary">Inscreva-se</button>
 									</div>
 								</div>
 							</form>
@@ -263,6 +264,54 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{{ asset('blog_template/js/main.js') }}"></script>
 
 	<script src="{{ asset('js/functions.js') }}"></script>
+
+	<script>
+		$(function(){
+
+			function isEmail(email){
+				var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				return regex.test(email);
+			}
+
+			$(document).on('click', '#subscribe-btn', (e) => {
+				e.preventDefault();
+				let _this = $(e.target);
+				let email = _this.parents("form").find("input[name='subscribe-email']").val();
+
+				if(! isEmail( email )){
+					$("body").append('<div class="global-message alert alert-danger error">Email inválido</div>');
+				}else{
+                    let formData = new FormData();
+                    let _token = $("meta[name='_token']").attr("content");
+                    formData.append('_token', _token);
+                    formData.append('email', email);
+
+                    $.ajax({
+                        url: "{{ route('newsletter_store') }}",
+                        type: "POST",
+                        dataType: "JSON",
+                        processData: false,
+                        contentType: false,
+                        data:formData,
+                        success: (respond) => {
+                            let message = respond.message;
+							$("body").append('<div class="global-message alert alert-success success">'+message+'</div>');
+							_this.parents("form").find("input[name='subscribe-email']").val("");
+						},
+						statusCode: {
+							500: function(respond){
+								$("body").append('<div class="global-message alert alert-danger error">Erro ao inscrever-se</div>');
+							}
+						}
+					});
+				}
+				setTimeout(function(){
+					$(".global-message").remove();
+				}, 5000);
+			});
+		});
+
+	</script>
 
     @yield('custom_js')
 

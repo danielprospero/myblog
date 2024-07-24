@@ -10,7 +10,6 @@
     color: #fff;
     z-index: 2;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para visibilidade */
 }
 
 
@@ -24,10 +23,16 @@
     background: #d81d1d;
 }
 
+.global-message.success
+{
+    background: #15c8ce;
+    border-color: #15c8ce;
+}
+
 .subscribe-error
 {
-    background: #931d1d;
-    border-color: #931d1d;
+    background: #d81d1d;;
+    border-color: #d81d1d;;
 }
 
 .subscribe-success
