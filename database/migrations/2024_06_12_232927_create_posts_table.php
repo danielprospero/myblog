@@ -18,9 +18,14 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('excerpt');
-            $table->string('body');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->text('body');
+
+            $table->foreignId('user_id');
+            $table->foreignId('category_id');
+
+            $table->integer('views')->default(0);
+            $table->boolean('approved')->default(true);
+            
             $table->timestamps();
         });
     }

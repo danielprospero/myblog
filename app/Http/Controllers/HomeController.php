@@ -11,8 +11,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::withCount('comments')->with('category', 'tags')->latest()->paginate(5);
-        $recent_posts = Post::latest()->take(3)->get();
+        $posts = Post::latest()
+        ->approved()
+        //->where('approved', 1)
+        ->withCount('comments')->paginate(10);
+        $recent_posts = Post::latest()
+        ->approved()
+        ->take(3)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(10)->get();
 

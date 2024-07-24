@@ -125,6 +125,14 @@
 											@enderror
 										</div>
 
+										<div class="mb-3">
+											<div class="form-check form-switch">
+												<input class="form-check-input" type="checkbox" name='approved' {{ $post->approved ? 'checked' : '' }} id="flexSwitchCheckDefault">
+												<label class="form-check-label {{ $post->approved ? 'text-success' : 'text-warning' }}" for="flexSwitchCheckDefault">{{ $post->approved ? 'Publicado' : 'Não Publicado'
+												}}</label>
+											</div>
+										</div>
+
 										<button class='btn btn-primary' type='submit'>Atualizar</button>
 
 										<a class='btn btn-danger' href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{$post->id}}').submit();">Deletar</a>
@@ -171,7 +179,7 @@
 			});
 			tinymce.init({
 				selector: '#post_content',
-				plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+           		plugins: 'advlist autolink lists link image media charmap print preview hr anchor pagebreak',
 				toolbar: 'insertfile undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
 				toolbar_mode: 'floating',
 				tinycomments_mode: 'embedded',

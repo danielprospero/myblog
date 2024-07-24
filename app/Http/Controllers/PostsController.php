@@ -11,7 +11,9 @@ class PostsController extends Controller
 {
     public function show(Post $post)
     {
-        $recent_posts = Post::latest()->take(3)->get();
+        $recent_posts = Post::latest()
+        ->approved()
+        ->take(3)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(10)->get();
 
