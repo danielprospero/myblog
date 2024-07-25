@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Posts;
+namespace App\Http\Resources\Comments;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SinglePostResource extends JsonResource
+class CommentsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,13 +15,10 @@ class SinglePostResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => $this->title,
-            'excerpt' => $this->excerpt,
-            'slug' => $this->slug,
-            'image' => $this->image,
-            'body' => $this->body,
-            'author' => $this->author->name,
+            'id' => $this->id,
+            'comment' => $this->the_comment,
             'created_at' => $this->created_at->format('d M Y'),
+            'user' => $this->user,
         ];
     }
 }

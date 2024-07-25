@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PostsController;
+use App\Http\Controllers\API\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('posts', PostsController::class)->only(['index', 'show']);
+Route::get('posts/{post}/comments', [CommentsController::class, 'show']);
 
