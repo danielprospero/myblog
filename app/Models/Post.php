@@ -15,7 +15,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'excerpt', 'body', 'user_id', 'category_id', 'approved'];
+    protected $fillable = ['title', 'slug', 'excerpt', 'body', 'user_id', 'category_id', 'approved', 'views'];
 
     public function author(){
         return $this->belongsTo(User::class, 'user_id');
@@ -38,5 +38,10 @@ class Post extends Model
 
     public function scopeApproved($query){
         return $query->where('approved', 1);
+    }
+
+    public function incrementViews()
+    {
+        $this->increment('views');
     }
 }

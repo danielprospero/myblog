@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 
-class HomeController extends Controller
+class PrivacyController extends Controller
 {
     public function index()
     {
@@ -28,7 +28,4 @@ class HomeController extends Controller
             'tags' => $tags]);
 
     }
-
-
 }
- 

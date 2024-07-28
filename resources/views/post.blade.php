@@ -1,5 +1,5 @@
 @extends('main_layouts.master')
-@section('title', $post->title . ' | MyBlog')
+@section('title', $post->title . ' | Núcleo Advance')
 @section('content')
 
 @section('costum_css')

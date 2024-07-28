@@ -92,6 +92,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative; }
 
 .colorlib-nav {
+  /* background: #302a39; */
   margin: 0;
   position: absolute;
   left: 0;
@@ -103,7 +104,7 @@ h1, h2, h3, h4, h5, h6, figure {
       margin: 0; } }
   .colorlib-nav .upper-menu {
     width: 100%;
-    padding: 15px 0;
+    padding: 10px 0;
     background: #302a39;
     -webkit-box-shadow: 0px 15px 16px -6px rgba(0, 0, 0, 0.16);
     -moz-box-shadow: 0px 15px 16px -6px rgba(0, 0, 0, 0.16);

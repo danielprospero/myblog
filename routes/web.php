@@ -50,6 +50,19 @@ Route::get('/categoreis', [CategoryController::class, 'index'])->name('categorie
 
 Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
 
+Route::get('privacy', function() {
+    return view('privacy');
+})->name('privacy');
+Route::get('terms', function() {
+    return view('terms');
+})->name('terms');
+Route::get('cookies', function() {
+    return view('cookies');
+})->name('cookies');
+Route::get('comment-policy', function() {
+    return view('comment-policy');
+})->name('comment-policy');
+
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('newsletter_store');
 
 

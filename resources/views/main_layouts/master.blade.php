@@ -41,6 +41,7 @@
         <link rel="stylesheet" href="{{ asset('blog_template/css/owl.theme.default.min.css') }}">
 	
 	<!-- Flaticons  -->
+		<link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('blog_template/fonts/flaticon/font/flaticon.css') }}">
 
 	<!-- Theme style  -->
@@ -57,8 +58,7 @@
     @yield('costum_css')
 
 	</head>
-	<body>
-		
+	<body>	
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
@@ -67,7 +67,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="{{ route('home') }}">Blog</a></div>
+							<div id="colorlib-logo"><a href="{{ route('home') }}"><img src="{{ asset('images/Logo_nucleo_advance_fundo_branco.png') }}" alt="Núcleo Advance"></a></div>
 						</div>
 						<div class="col-md-10 text-right menu-1">
 							<ul>
@@ -75,12 +75,9 @@
 								<li class="has-dropdown">
 									<a href="{{ route('categories.index') }}">Categorias</a>
 									<ul class="dropdown">
-										@foreach ($navbar_categories as $category)
-											
-										<li><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></li>
-
+										@foreach ($navbar_categories as $category)			
+											<li><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></li>
 										@endforeach
-
 									</ul>
 								</li>
 								<li><a href="{{ route('about') }}">Sobre</a></li>
@@ -115,64 +112,21 @@
 
         @yield('content')
 
-		<div id="colorlib-subscribe" class="subs-img" style="background-image: url({{ asset('blog_template/images/img_bg_2.jpg')}});" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>Inscreva-se no Newsletter</h2>
-						<p>Inscreva-se ao nossa newsletter e receba as últimas atualizações</p>
-					</div>
-				</div>
-				<div class="row animate-box">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="row">
-							<div class="col-md-12">
-							<form class="form-inline qbstp-header-subscribe">
-								<div class="col-three-forth">
-									<div class="form-group">
-										<input name="subscribe-email" type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
-									</div>
-								</div>
-								<div class="col-one-third">
-									<div class="form-group">
-										<button id="subscribe-btn" type="submit" class="btn btn-primary">Inscreva-se</button>
-									</div>
-								</div>
-							</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<footer id="colorlib-footer">
 			<div class="container">
-				<div class="row row-pb-md">
-					<div class="col-md-3 colorlib-widget">
-						<h4>Contact Info</h4>
+				<div class="row col-md-12 align-items-center justify-content-center">
+					<div class="col-md-4 colorlib-widget">
+						<h4>Informações de contato</h4>
 						<ul class="colorlib-footer-links">
-							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920"><i class="icon-phone"></i> + 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com"><i class="icon-envelope"></i> info@yoursite.com</a></li>
-							<li><a href="http://luxehotel.com"><i class="icon-location4"></i> yourwebsite.com</a></li>
+							<li><i class="icon-location4"></i>  Avenida Lauro de Freitas, Tanhaçu-BA</li>
+							<li><a href="tel://5511999999999"><i class="icon-phone"></i> +55 11 99999-9999</a></li>
+							<li><a href="mailto:info@nucleoadvance.com"><i class="icon-envelope"></i> info@nucleoadvance.com</a></li>
+							<li><a href="http://nucleoadvance.com"><i class="icon-globe"></i> nucleoadvance.com</a></li>
 						</ul>
 					</div>
-					<div class="col-md-2 colorlib-widget">
-						<h4>Programs</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#"><i class="icon-check"></i> Diploma Degree</a></li>
-								<li><a href="#"><i class="icon-check"></i> BS Degree</a></li>
-								<li><a href="#"><i class="icon-check"></i> Beginner</a></li>
-								<li><a href="#"><i class="icon-check"></i> Intermediate</a></li>
-								<li><a href="#"><i class="icon-check"></i> Advance</a></li>
-								<li><a href="#"><i class="icon-check"></i> Difficulty</a></li>
-							</ul>
-						</p>
-					</div>
-					<div class="col-md-2 colorlib-widget">
-						<h4>Useful Links</h4>
+
+					<div class="col-md-4 colorlib-widget">
+						<h4>Links Úteis</h4>
 						<p>
 							<ul class="colorlib-footer-links">
 								<li><a href="#"><i class="icon-check"></i> About Us</a></li>
@@ -185,38 +139,21 @@
 						</p>
 					</div>
 
-					<div class="col-md-2 colorlib-widget">
-						<h4>Support</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#"><i class="icon-check"></i> Documentation</a></li>
-								<li><a href="#"><i class="icon-check"></i> Forums</a></li>
-								<li><a href="#"><i class="icon-check"></i> Help &amp; Support</a></li>
-								<li><a href="#"><i class="icon-check"></i> Scholarship</a></li>
-								<li><a href="#"><i class="icon-check"></i> Student Transport</a></li>
-								<li><a href="#"><i class="icon-check"></i> Release Status</a></li>
-							</ul>
-						</p>
-					</div>
+					<div class="col-md-4 colorlib-widget">
+						<h4>Postagens Recentes</h4>
+						@foreach ($recent_posts as $recent_post)
 
-					<div class="col-md-3 colorlib-widget">
-						<h4>Recent Post</h4>
 						<div class="f-blog">
-							<a href="blog.html" class="blog-img" style="background-image: url({{ asset('blog_template/images/blog-1.jpg')}});">
-							</a>
-							<div class="desc">
-								<h2><a href="blog.html">Creating Mobile Apps</a></h2>
-								<p class="admin"><span>18 April 2018</span></p>
-							</div>
-						</div>
-						<div class="f-blog">
-							<a href="blog.html" class="blog-img" style="background-image: url({{ asset('blog_template/images/blog-2.jpg')}});">
-							</a>
-							<div class="desc">
-								<h2><a href="blog.html">Creating Mobile Apps</a></h2>
-								<p class="admin"><span>18 April 2018</span></p>
-							</div>
-						</div>
+                            <a href="{{ route('posts.show', $recent_post)}}" class="blog-img" style="background-image: url({{ asset($recent_post->image->path ? 'storage/'. $recent_post->image->path : 'placeholders/thumbnail_placeholder.svg') }});">
+                            </a>
+                            <div class="desc">
+                                <h2><a title="{{ $recent_post->title }}" href="{{ route('posts.show', $recent_post)}}">{{ \Str::limit($recent_post->title, 20) }}</a></h2>
+                                <p class="admin"><span>{{ $recent_post->created_at->format('d M Y') }}</span></p>
+                            </div>
+                        </div>
+
+						@endforeach
+
 					</div>
 				</div>
 			</div>
@@ -226,9 +163,9 @@
 						<div class="col-md-12 text-center">
 							<p>
 								<small class="block">&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados | Feito com <i class="icon-heart" aria-hidden="true" style="color: red;"></i> by <a href="https://danielprospero.com" target="_blank">Daniel Próspero</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small><br> 
-								<small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a></small>
+								<small class="block">Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a></small>
 							</p>
 						</div>
 					</div>

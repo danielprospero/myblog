@@ -1,5 +1,5 @@
 @extends('main_layouts.master')
-@section('title', 'MyBlog | Sobre')
+@section('title', 'Núcleo Advance | Sobre')
 @section('content')
 		
     <div id="colorlib-counter" class="colorlib-counters">
@@ -23,34 +23,24 @@
                             <p>{{ $setting->about_first_text }}</p>
                         </div>
                         <div class="col-md-6 col-xs-6 animate-box">
+
+                        </div>
+                        <div class="col-md-6 col-xs-6 animate-box">
+
+                        </div>
+                        <div class="col-md-6 col-xs-6 animate-box">
                             <div class="counter-entry">
                                 <div class="desc">
-                                    <span class="colorlib-counter js-counter" data-from="0" data-to="1539" data-speed="5000" data-refresh-interval="50"></span>
-                                    <span class="colorlib-counter-label">Cursos</span>
+                                    <span class="colorlib-counter js-counter" data-from="0" data-to="{{ $posts->count() }}" data-speed="5000" data-refresh-interval="50"></span>
+                                    <span class="colorlib-counter-label">Posts</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-6 animate-box">
                             <div class="counter-entry">
                                 <div class="desc">
-                                    <span class="colorlib-counter js-counter" data-from="0" data-to="3653" data-speed="5000" data-refresh-interval="50"></span>
-                                    <span class="colorlib-counter-label">Estudantes</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-6 animate-box">
-                            <div class="counter-entry">
-                                <div class="desc">
-                                    <span class="colorlib-counter js-counter" data-from="0" data-to="2300" data-speed="5000" data-refresh-interval="50"></span>
-                                    <span class="colorlib-counter-label">Professores online</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-6 animate-box">
-                            <div class="counter-entry">
-                                <div class="desc">
-                                    <span class="colorlib-counter js-counter" data-from="0" data-to="200" data-speed="5000" data-refresh-interval="50"></span>
-                                    <span class="colorlib-counter-label">Países</span>
+                                    <span class="colorlib-counter js-counter" data-from="0" data-to="{{ $posts->sum('views') }}" data-speed="5000" data-refresh-interval="50"></span>
+                                    <span class="colorlib-counter-label">Visualizações</span>
                                 </div>
                             </div>
                         </div>

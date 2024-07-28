@@ -16,6 +16,7 @@ class PostsController extends Controller
         ->take(3)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(10)->get();
+        $post->incrementViews();
 
         return view('post', ['post' => $post, 'recent_posts' => $recent_posts, 'categories' => $categories, 'tags' => $tags]);
     }

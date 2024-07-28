@@ -1,5 +1,5 @@
 @extends('main_layouts.master')
-@section('title', 'MyBlog | Contato')
+@section('title', 'Núcleo Advance | Contato')
 @section('content')
 
 	<div class='global-message info d-none'></div>
@@ -13,16 +13,16 @@
                         <div class="col-md-12">
                             <div class="contact-info-wrap-flex">
                                 <div class="con-info">
-                                    <p><span><i class="icon-location-2"></i></span> 198 West 21th Street, <br> Suite 721 New York NY 10016</p>
+                                    <p><span><i class="icon-location4"></i></span> Avenida Lauro de Freitas, <br> Tanhaçu-BA</p>
                                 </div>
                                 <div class="con-info">
-                                    <p><span><i class="icon-phone3"></i></span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                                    <p><span><i class="icon-phone3"></i></span> <a href="tel://5511999999999">+55 11 99999-9999</a></p>
                                 </div>
                                 <div class="con-info">
-                                    <p><span><i class="icon-paperplane"></i></span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                    <p><span><i class="icon-paperplane"></i></span> <a href="mailto:info@nucleoadvance.com">info@nucleoadvance.com</a></p>
                                 </div>
                                 <div class="con-info">
-                                    <p><span><i class="icon-globe"></i></span> <a href="#">yourwebsite.com</a></p>
+                                    <p><span><i class="icon-globe"></i></span> <a href="#">nucleoadvance.com</a></p>
                                 </div>
                             </div>
                         </div>

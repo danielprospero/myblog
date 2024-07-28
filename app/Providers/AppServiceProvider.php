@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Setting;
 //use Doctrine\DBAL\Schema\Schema;
+use App\Http\View\Composers\ViewComposer;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('*', ViewComposer::class);
         PaginationPaginator::useBootstrap();
 
         if( Schema::hasTable('categories') )
