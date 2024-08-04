@@ -4,8 +4,8 @@
     <div class="colorlib-blog">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 post-content text-justify">
-
+                <div class="col-md-8 posts-col">
+                
                     <h1>Política de Cookies</h1>
 
                     <h2>1. Introdução</h2>
