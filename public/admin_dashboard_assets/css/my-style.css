@@ -24,3 +24,17 @@
     text-align: center;
     background: red;
 }
+
+.general-message-success
+{
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 500px;
+    border-radius: 50px;
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+    background: #128e0a;
+}

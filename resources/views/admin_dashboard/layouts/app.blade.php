@@ -32,7 +32,7 @@
 <body>
 
     @if(Session::has('success'))
-        <div class='general-message alert alert-success'>{{ Session::get('success') }}</div>
+        <div class='general-message alert general-message-success'>{{ Session::get('success') }}</div>
     @endif
 
     @if(Session::has('error'))
