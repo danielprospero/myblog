@@ -41,8 +41,8 @@
 		<link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('blog_template/fonts/flaticon/font/flaticon.css') }}">
 	<!-- Theme style  -->
-        <link rel="stylesheet" href="{{ asset('blog_template/css/style.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
+        <link rel="stylesheet" href="{{ asset('/blog_template/css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('/css/mystyle.css') }}">
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->

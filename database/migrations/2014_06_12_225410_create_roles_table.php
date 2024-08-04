@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateRolesTable extends Migration
 {
@@ -18,7 +19,16 @@ class CreateRolesTable extends Migration
             $table->string('name')->unique();
             $table->timestamps();
         });
+
+        DB::table('roles')->insert([
+            ['name' => 'admin'],
+            ['name' => 'author'],
+            ['name' => 'user'],
+    
+        ]);
     }
+
+
 
     /**
      * Reverse the migrations.
