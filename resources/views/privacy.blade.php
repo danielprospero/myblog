@@ -77,9 +77,18 @@
 
                     <h2>9. Contato</h2>
                     <p>Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade ou nossas práticas de privacidade, entre em contato conosco através do e-mail <a href="mailto:info@nucleoadvance.com">info@nucleoadvance.com</a>.</p>
+               </div>
+
+                <!-- SIDEBAR: start -->
+                <div class="col-md-4 animate-box">
+                    <div class="sidebar">
+                        <x-blog.side-search :search="$search" />
+                        <x-blog.side-categories :categories="$categories" />
+                        <x-blog.side-recent-posts :recentPosts="$recent_posts" />
+                        <x-blog.side-tags :tags="$tags" />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
-

@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "mailchimp/marketing": "^3.0",
+        "spatie/laravel-cookie-consent": "^3.2",
         "symfony/http-client": "^5.4",
         "symfony/mailgun-mailer": "^5.4"
     },

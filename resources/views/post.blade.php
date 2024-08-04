@@ -91,6 +91,7 @@
                 <div class="col-md-4 animate-box">
                     <div class="sidebar">
 
+                        <x-blog.side-search :search="$search" />
                         <x-blog.side-categories :categories="$categories" />
                         <x-blog.side-recent-posts :recentPosts="$recent_posts" />
                         <x-blog.side-tags :tags="$tags" />

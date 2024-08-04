@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="auto">
+
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,25 +30,19 @@
         <link rel="stylesheet" href="{{ asset('blog_template/css/icomoon.css') }}">
 	<!-- Bootstrap  -->
         <link rel="stylesheet" href="{{ asset('blog_template/css/bootstrap.css') }}">
-
 	<!-- Magnific Popup -->
         <link rel="stylesheet" href="{{ asset('blog_template/css/magnific-popup.css') }}">
-
 	<!-- Flexslider  -->
         <link rel="stylesheet" href="{{ asset('blog_template/css/flexslider.css') }}">
-
 	<!-- Owl Carousel -->
         <link rel="stylesheet" href="{{ asset('blog_template/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('blog_template/css/owl.theme.default.min.css') }}">
-	
 	<!-- Flaticons  -->
 		<link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('blog_template/fonts/flaticon/font/flaticon.css') }}">
-
 	<!-- Theme style  -->
         <link rel="stylesheet" href="{{ asset('blog_template/css/style.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
-
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -62,14 +57,13 @@
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
-			
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-2">
 							<div id="colorlib-logo"><a href="{{ route('home') }}"><img src="{{ asset('images/Logo_nucleo_advance_fundo_branco.png') }}" alt="Núcleo Advance"></a></div>
 						</div>
-						<div class="col-md-10 text-right menu-1">
+						<div class="col-md-10 text-right menu-1 animate-box fadeInUp animated-fast">
 							<ul>
 								<li><a href="{{ route('home') }}">Home</a></li>
 								<li class="has-dropdown">
@@ -98,10 +92,16 @@
 								@endauth
 							</ul>
 						</div>
+
 					</div>
+					
+					<hr>
+
 				</div>
 			</div>
+
 		</nav>
+
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
@@ -110,12 +110,18 @@
 		  	</div>
 		</aside>
 
+
         @yield('content')
 
+
 		<footer id="colorlib-footer">
+
+
 			<div class="container">
 				<div class="row col-md-12 align-items-center justify-content-center">
-					<div class="col-md-4 colorlib-widget">
+									<hr>
+
+					<div class="col-md-5 colorlib-widget">
 						<h4>Informações de contato</h4>
 						<ul class="colorlib-footer-links">
 							<li><i class="icon-location4"></i>  Avenida Lauro de Freitas, Tanhaçu-BA</li>
@@ -129,19 +135,19 @@
 						<h4>Links Úteis</h4>
 						<p>
 							<ul class="colorlib-footer-links">
-								<li><a href="#"><i class="icon-check"></i> About Us</a></li>
-								<li><a href="#"><i class="icon-check"></i> Testimonials</a></li>
-								<li><a href="#"><i class="icon-check"></i> Courses</a></li>
-								<li><a href="#"><i class="icon-check"></i> Event</a></li>
-								<li><a href="#"><i class="icon-check"></i> News</a></li>
-								<li><a href="#"><i class="icon-check"></i> Contact</a></li>
+								<li><a href="{{ route('privacy') }}" ><i class="icon-check"></i> Política de Privacidade</a></li>
+								<li><a href="{{ route('terms') }}"><i class="icon-check"></i> Termos de Uso</a></li>
+								<li><a href="{{ route('cookies') }}" ><i class="icon-check"></i> Política de Cookies</a></li>
+								<li><a href="{{ route('comment-policy') }}" ><i class="icon-check"></i> Política de Comentários</a></li>
+								<li><a href="{{ route('about') }}" ><i class="icon-check"></i> Sobre Nós</a></li>
+								<li><a href="{{ route('contact.create') }}" class="footer-link"><i class="icon-check"></i> Contato</a></li>
 							</ul>
 						</p>
 					</div>
 
-					<div class="col-md-4 colorlib-widget">
+					<div class="col-md-3 colorlib-widget">
 						<h4>Postagens Recentes</h4>
-						@foreach ($recent_posts as $recent_post)
+						@foreach ($recent_posts_footer as $recent_post)
 
 						<div class="f-blog">
                             <a href="{{ route('posts.show', $recent_post)}}" class="blog-img" style="background-image: url({{ asset($recent_post->image->path ? 'storage/'. $recent_post->image->path : 'placeholders/thumbnail_placeholder.svg') }});">
@@ -169,10 +175,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 							</p>
 						</div>
 					</div>
+					<hr>
 				</div>
+
 			</div>
+
 		</footer>
+
 	</div>
+
+	@include('cookie-consent::index')
+
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>

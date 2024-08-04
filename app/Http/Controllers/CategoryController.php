@@ -20,12 +20,14 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $recent_posts = Post::latest()->take(3)->get();
+        $recent_posts_footer = Post::latest()->take(2)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(10)->get();
 
         return view('categories.show', [
             'category' => $category,
             'posts' => $category->posts()->paginate(10),
+            'recent_posts_footer' => $recent_posts_footer,
             'recent_posts' => $recent_posts, 
             'categories' => $categories, 
             'tags' => $tags

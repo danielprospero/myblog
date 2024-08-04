@@ -24,7 +24,7 @@
                         <p class='lead'>Nenhum post encontrado</p>
 
                     @endforelse
-
+                    
                     {{$posts->links()}}
 
                 </div>
@@ -32,9 +32,13 @@
                 <!-- SIDEBAR: start -->
                 <div class="col-md-4 animate-box">
                     <div class="sidebar">
-
+    
+                        <x-blog.side-search :search="$search" />
+                        <hr style="border-top: 2px solid #f0f0f0;">
                         <x-blog.side-categories :categories="$categories" />
+                        <hr style="border-top: 2px solid #f0f0f0;">
                         <x-blog.side-recent-posts :recentPosts="$recent_posts" />
+                        <hr style="border-top: 2px solid #f0f0f0;">
                         <x-blog.side-tags :tags="$tags" />
 
                     </div>

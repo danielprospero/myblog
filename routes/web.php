@@ -21,6 +21,7 @@ use App\Http\Controllers\AdminControllers\AdminRolesController;
 use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
+use App\Http\Controllers\PrivacyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +51,7 @@ Route::get('/categoreis', [CategoryController::class, 'index'])->name('categorie
 
 Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
 
-Route::get('privacy', function() {
-    return view('privacy');
-})->name('privacy');
+Route::get('privacy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('terms', function() {
     return view('terms');
 })->name('terms');

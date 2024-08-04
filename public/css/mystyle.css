@@ -48,3 +48,54 @@
 {
     width: 100%;
 }
+
+.js-cookie-consent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #00ffff;
+    border-top: solid 1px #00ffff;
+    padding-top: 17px;
+    padding-bottom: 0;
+    text-align: center;
+
+}
+.js-cookie-consent a {
+    color: #000;
+    text-decoration: none;
+}
+
+.form-control-dark {
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+  }
+  
+  .text-small {
+    font-size: 85%;
+  }
+  
+  .dropdown-toggle:not(:focus) {
+    outline: 0;
+  }
+
+  btn-nucleo {
+
+    background: #15c8ce;
+    border-color: #15c8ce;
+    
+  }
+
+  .border {
+    border: 1px solid #ccc; /* Altere para a cor e estilo de borda desejados */
+    padding: 10px; /* Opcional: adiciona preenchimento dentro da borda */
+    border-radius: 5px; /* Opcional: adiciona bordas arredondadas */
+  }
+
+  .rounded-circle {
+    border-radius: 50%;
+    padding-bottom: 15px;
+  }
